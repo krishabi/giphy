@@ -27,7 +27,7 @@ class GifRepository {
     fun getGif(offSet:Int,query:String):MutableLiveData<ArrayList<DataItem>>{
 
         val giphyApi = RetrofitClient.instance.create(GiphyApi::class.java)
-        val responseCall = giphyApi.fetchGifs(apiKey, query, 25, offSet, rating, lang)
+        val responseCall = giphyApi.fetchGifs(apiKey, query, 50, offSet, rating, lang)
         responseCall.enqueue(object :Callback<GifResponse>{
             override fun onFailure(call: Call<GifResponse>, t: Throwable) {
                 gifList.value = null

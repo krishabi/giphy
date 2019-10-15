@@ -52,6 +52,7 @@ class GiphySearchFragment : Fragment(){
         binding?.setLifecycleOwner(this)
         binding?.setVariable(0,mViewModel)
 
+        binding?.search?.queryHint = "Search your Gifs"
         /*TextChangeListener for Search*/
         binding?.search?.setOnQueryTextListener( object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(text: String): Boolean {
