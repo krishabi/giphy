@@ -1,6 +1,5 @@
 package com.practice.mygiphyapp.repo
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.practice.mygiphyapp.network.RetrofitClient
 import com.practice.mygiphyapp.network.request.GiphyApi
@@ -27,21 +26,21 @@ class GifRepository {
 
     fun getGif(offSet:Int,query:String):MutableLiveData<ArrayList<DataItem>>{
 
-        var giphyApi = RetrofitClient.instance.create(GiphyApi::class.java)
-        var responseCall = giphyApi.fetchGifs(apiKey,query,25,offSet,rating,lang)
+        val giphyApi = RetrofitClient.instance.create(GiphyApi::class.java)
+        val responseCall = giphyApi.fetchGifs(apiKey, query, 25, offSet, rating, lang)
         responseCall.enqueue(object :Callback<GifResponse>{
             override fun onFailure(call: Call<GifResponse>, t: Throwable) {
+                gifList.value = null
             }
             override fun onResponse(call: Call<GifResponse>, response: Response<GifResponse>) {
-                    if (response?.body() != null) {
-                        gifList.value = response?.body()?.data
-                        Log.e("Abishek", response?.body()?.data?.get(0)?.title)
+                if (response.body()?.data != null) {
+                    gifList.value = response.body()?.data
                     } else {
-                    Log.e("Abishek", response?.errorBody()?.string()+"    "+call.request())
+                    gifList.value = null
                 }
             }
         } )
-        return gifList;
+        return gifList
     }
 
 }
