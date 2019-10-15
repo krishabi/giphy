@@ -2,11 +2,11 @@ package com.practice.mygiphyapp.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
-import com.practice.mygiphyapp.repo.GifRepository
 import com.practice.mygiphyapp.network.response.DataItem
-import androidx.lifecycle.LiveData
+import com.practice.mygiphyapp.repo.GifRepository
 
 
 class GifSearchViewModel(application: Application) : AndroidViewModel(application){

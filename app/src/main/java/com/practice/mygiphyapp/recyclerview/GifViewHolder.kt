@@ -6,6 +6,7 @@ import com.bumptech.glide.Glide
 import com.practice.mygiphyapp.network.response.FixedWidthImage
 import kotlinx.android.synthetic.main.layout_item.view.*
 
+/*ViewHolder class which binds the image*/
 class GifViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
     fun bindView(fixedWidthImage: FixedWidthImage){
 
